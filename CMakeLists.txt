@@ -23,6 +23,16 @@ set(GMOCK_VER "1.7.0" CACHE STRING "Google Mock framework version to be used")
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules)
 
 #
+# Conan support
+#
+
+if (EXISTS "${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
+    include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+    message(STATUS "conan_basic_setup()")
+    conan_basic_setup()
+endif()
+
+#
 # Generic Compiler Flags
 #
 
